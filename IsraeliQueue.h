@@ -6,12 +6,18 @@
 #define FRIEND_QUOTA 5
 #define RIVAL_QUOTA 3
 
-typedef struct IsraeliQueue_t * IsraeliQueue;
+typedef struct IsraeliQueue_t *IsraeliQueue;
 
-typedef int (*FriendshipFunction)(void*,void*);
-typedef int (*ComparisonFunction)(void*,void*);
+typedef int (*FriendshipFunction)(void *, void *);
+typedef int (*ComparisonFunction)(void *, void *);
 
-typedef enum { ISRAELIQUEUE_SUCCESS, ISRAELIQUEUE_ALLOC_FAILED, ISRAELIQUEUE_BAD_PARAM, ISRAELI_QUEUE_ERROR } IsraeliQueueError;
+typedef enum
+{
+    ISRAELIQUEUE_SUCCESS,
+    ISRAELIQUEUE_ALLOC_FAILED,
+    ISRAELIQUEUE_BAD_PARAM,
+    ISRAELI_QUEUE_ERROR
+} IsraeliQueueError;
 
 /**Error clarification:
  * ISRAELIQUEUE_SUCCESS: Indicates the function has completed its task successfully with no errors.
@@ -62,7 +68,7 @@ int IsraeliQueueSize(IsraeliQueue);
 
 /**Removes and returns the foremost element of the provided queue. If the parameter
  * is NULL or a pointer to an empty queue, NULL is returned.*/
-void* IsraeliQueueDequeue(IsraeliQueue);
+void *IsraeliQueueDequeue(IsraeliQueue);
 
 /**@param item: an object comparable to the objects in the IsraeliQueue
  *
@@ -80,6 +86,6 @@ IsraeliQueueError IsraeliQueueImprovePositions(IsraeliQueue);
  * Merges all queues in q_arr into a single new queue, with parameters the parameters described
  * in the exercise. Each queue in q_arr enqueues its head in the merged queue, then lets the next
  * one enqueue an item, in the order defined by q_arr. In the event of any error during execution, return NULL.*/
-IsraeliQueue IsraeliQueueMerge(IsraeliQueue*,ComparisonFunction);
+IsraeliQueue IsraeliQueueMerge(IsraeliQueue *, ComparisonFunction);
 
-#endif //PROVIDED_ISRAELIQUEUE_H
+#endif // PROVIDED_ISRAELIQUEUE_H
